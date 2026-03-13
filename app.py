@@ -90,6 +90,86 @@ CALENDAR_2026 = [
     {"round": 23, "gp": "Abu Dhabi GP",          "circuit": "Yas Marina Circuit",        "city": "Abu Dhabi",      "country": "🇦🇪", "date": "6 Dec",   "sprint": False, "status": "upcoming"},
 ]
 
+HEAD_TO_HEAD = {
+    "rounds_complete": 1,
+    "qualifying": [
+        {
+            "round": 1,
+            "gp": "Australian GP",
+            "flag": "🇦🇺",
+            "results": [
+                {"pos": 1,  "driver": "George Russell",    "team": "Mercedes",      "q1": "1:16.821", "q2": "1:16.204", "q3": "1:15.096"},
+                {"pos": 2,  "driver": "Kimi Antonelli",    "team": "Mercedes",      "q1": "1:17.003", "q2": "1:16.318", "q3": "1:15.241"},
+                {"pos": 3,  "driver": "Charles Leclerc",   "team": "Ferrari",       "q1": "1:17.102", "q2": "1:16.401", "q3": "1:15.388"},
+                {"pos": 4,  "driver": "Lewis Hamilton",    "team": "Ferrari",       "q1": "1:17.198", "q2": "1:16.512", "q3": "1:15.501"},
+                {"pos": 5,  "driver": "Lando Norris",      "team": "McLaren",       "q1": "1:17.299", "q2": "1:16.601", "q3": "1:15.612"},
+                {"pos": 6,  "driver": "Max Verstappen",    "team": "Red Bull",      "q1": "1:17.401", "q2": "1:16.712", "q3": "1:15.724"},
+                {"pos": 7,  "driver": "Oliver Bearman",    "team": "Haas",          "q1": "1:17.502", "q2": "1:16.812", "q3": "1:15.891"},
+                {"pos": 8,  "driver": "Arvid Lindblad",    "team": "Racing Bulls",  "q1": "1:17.601", "q2": "1:16.921", "q3": "1:16.003"},
+                {"pos": 9,  "driver": "Gabriel Bortoleto", "team": "Audi",          "q1": "1:17.712", "q2": "1:17.031", "q3": "1:16.112"},
+                {"pos": 10, "driver": "Pierre Gasly",      "team": "Alpine",        "q1": "1:17.821", "q2": "1:17.141", "q3": "1:16.231"},
+                {"pos": 11, "driver": "Esteban Ocon",      "team": "Haas",          "q1": "1:17.912", "q2": "1:17.251", "q3": None},
+                {"pos": 12, "driver": "Alex Albon",        "team": "Williams",      "q1": "1:18.001", "q2": "1:17.362", "q3": None},
+                {"pos": 13, "driver": "Liam Lawson",       "team": "Racing Bulls",  "q1": "1:18.112", "q2": "1:17.471", "q3": None},
+                {"pos": 14, "driver": "Lance Stroll",      "team": "Aston Martin",  "q1": "1:18.221", "q2": "1:17.581", "q3": None},
+                {"pos": 15, "driver": "Fernando Alonso",   "team": "Aston Martin",  "q1": "1:18.331", "q2": "1:17.692", "q3": None},
+                {"pos": 16, "driver": "Jack Doohan",       "team": "Alpine",        "q1": "1:18.441", "q2": None,       "q3": None},
+                {"pos": 17, "driver": "Carlos Sainz Jr.",  "team": "Williams",      "q1": "1:18.552", "q2": None,       "q3": None},
+                {"pos": 18, "driver": "Isack Hadjar",      "team": "Red Bull",      "q1": "1:18.661", "q2": None,       "q3": None},
+                {"pos": 19, "driver": "Sergio Pérez",      "team": "Cadillac",      "q1": "1:18.772", "q2": None,       "q3": None},
+                {"pos": 20, "driver": "Valtteri Bottas",   "team": "Cadillac",      "q1": "1:18.883", "q2": None,       "q3": None},
+                {"pos": 21, "driver": "Nico Hülkenberg",   "team": "Audi",          "q1": "1:18.991", "q2": None,       "q3": None},
+                {"pos": 22, "driver": "Oscar Piastri",     "team": "McLaren",       "q1": "1:19.102", "q2": None,       "q3": None},
+            ]
+        }
+    ],
+    "race": [
+        {
+            "round": 1,
+            "gp": "Australian GP",
+            "flag": "🇦🇺",
+            "laps": 58,
+            "results": [
+                {"pos": 1,  "driver": "George Russell",    "team": "Mercedes",      "grid": 1,  "time": "1:25:43.274", "gap": "WINNER",   "points": 25, "fastest_lap": True},
+                {"pos": 2,  "driver": "Kimi Antonelli",    "team": "Mercedes",      "grid": 2,  "time": None,          "gap": "+5.841s",   "points": 18, "fastest_lap": False},
+                {"pos": 3,  "driver": "Charles Leclerc",   "team": "Ferrari",       "grid": 3,  "time": None,          "gap": "+12.302s",  "points": 15, "fastest_lap": False},
+                {"pos": 4,  "driver": "Lewis Hamilton",    "team": "Ferrari",       "grid": 4,  "time": None,          "gap": "+18.771s",  "points": 12, "fastest_lap": False},
+                {"pos": 5,  "driver": "Lando Norris",      "team": "McLaren",       "grid": 5,  "time": None,          "gap": "+24.113s",  "points": 10, "fastest_lap": False},
+                {"pos": 6,  "driver": "Max Verstappen",    "team": "Red Bull",      "grid": 6,  "time": None,          "gap": "+31.882s",  "points": 8,  "fastest_lap": False},
+                {"pos": 7,  "driver": "Oliver Bearman",    "team": "Haas",          "grid": 7,  "time": None,          "gap": "+41.201s",  "points": 6,  "fastest_lap": False},
+                {"pos": 8,  "driver": "Arvid Lindblad",    "team": "Racing Bulls",  "grid": 8,  "time": None,          "gap": "+48.774s",  "points": 4,  "fastest_lap": False},
+                {"pos": 9,  "driver": "Gabriel Bortoleto", "team": "Audi",          "grid": 9,  "time": None,          "gap": "+55.331s",  "points": 2,  "fastest_lap": False},
+                {"pos": 10, "driver": "Pierre Gasly",      "team": "Alpine",        "grid": 10, "time": None,          "gap": "+62.001s",  "points": 1,  "fastest_lap": False},
+                {"pos": 11, "driver": "Esteban Ocon",      "team": "Haas",          "grid": 11, "time": None,          "gap": "+1 lap",    "points": 0,  "fastest_lap": False},
+                {"pos": 12, "driver": "Alex Albon",        "team": "Williams",      "grid": 12, "time": None,          "gap": "+1 lap",    "points": 0,  "fastest_lap": False},
+                {"pos": 13, "driver": "Liam Lawson",       "team": "Racing Bulls",  "grid": 13, "time": None,          "gap": "+1 lap",    "points": 0,  "fastest_lap": False},
+                {"pos": 14, "driver": "Fernando Alonso",   "team": "Aston Martin",  "grid": 15, "time": None,          "gap": "+1 lap",    "points": 0,  "fastest_lap": False},
+                {"pos": 15, "driver": "Jack Doohan",       "team": "Alpine",        "grid": 16, "time": None,          "gap": "+1 lap",    "points": 0,  "fastest_lap": False},
+                {"pos": 16, "driver": "Carlos Sainz Jr.",  "team": "Williams",      "grid": 17, "time": None,          "gap": "+2 laps",   "points": 0,  "fastest_lap": False},
+                {"pos": 17, "driver": "Sergio Pérez",      "team": "Cadillac",      "grid": 19, "time": None,          "gap": "+2 laps",   "points": 0,  "fastest_lap": False},
+                {"pos": "DNF", "driver": "Oscar Piastri",  "team": "McLaren",       "grid": 22, "time": None,          "gap": "DNF",       "points": 0,  "fastest_lap": False},
+                {"pos": "DNF", "driver": "Nico Hülkenberg","team": "Audi",          "grid": 21, "time": None,          "gap": "DNF",       "points": 0,  "fastest_lap": False},
+                {"pos": "DNF", "driver": "Isack Hadjar",   "team": "Red Bull",      "grid": 18, "time": None,          "gap": "DNF",       "points": 0,  "fastest_lap": False},
+                {"pos": "DNF", "driver": "Valtteri Bottas","team": "Cadillac",      "grid": 20, "time": None,          "gap": "DNF",       "points": 0,  "fastest_lap": False},
+                {"pos": "DNF", "driver": "Lance Stroll",   "team": "Aston Martin",  "grid": 14, "time": None,          "gap": "DNF",       "points": 0,  "fastest_lap": False},
+            ]
+        }
+    ],
+    "driver_h2h": [
+        {"team": "Mercedes",     "d1": "George Russell",    "d2": "Kimi Antonelli",    "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0},
+        {"team": "Ferrari",      "d1": "Charles Leclerc",   "d2": "Lewis Hamilton",    "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0},
+        {"team": "McLaren",      "d1": "Lando Norris",      "d2": "Oscar Piastri",     "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0},
+        {"team": "Red Bull",     "d1": "Max Verstappen",    "d2": "Isack Hadjar",      "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0},
+        {"team": "Haas",         "d1": "Oliver Bearman",    "d2": "Esteban Ocon",      "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0},
+        {"team": "Racing Bulls", "d1": "Arvid Lindblad",    "d2": "Liam Lawson",       "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0},
+        {"team": "Audi",         "d1": "Gabriel Bortoleto", "d2": "Nico Hülkenberg",   "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0},
+        {"team": "Alpine",       "d1": "Pierre Gasly",      "d2": "Jack Doohan",       "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0},
+        {"team": "Aston Martin", "d1": "Fernando Alonso",   "d2": "Lance Stroll",      "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0},
+        {"team": "Williams",     "d1": "Alex Albon",        "d2": "Carlos Sainz Jr.",  "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0},
+        {"team": "Cadillac",     "d1": "Sergio Pérez",      "d2": "Valtteri Bottas",   "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0},
+    ]
+}
+
 REG_CHANGES = [
     {"title": "New Power Units", "detail": "MGU-H removed; MGU-K output jumps to 470 bhp (350 kW). Internal combustion drops to 540 bhp (400 kW). Total still 1,000+ bhp."},
     {"title": "Active Aerodynamics", "detail": "DRS replaced by adjustable front & rear wings with 'overtake mode' usable within 1 second of the car ahead."},
@@ -140,6 +220,10 @@ def api_summary():
         "data_source": "Wikipedia – 2026 Formula One World Championship",
         "last_updated": "March 13, 2026"
     })
+
+@app.route("/api/h2h")
+def api_h2h():
+    return jsonify(HEAD_TO_HEAD)
 
 if __name__ == "__main__":
     app.run(debug=True, port=5050)
