@@ -639,12 +639,176 @@
     text-transform: uppercase;
   }
 
+  /* ─── Head to Head ──────────────────────────────────── */
+  .h2h-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .h2h-tab-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--muted);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .h2h-tab-btn:hover { color: var(--text); border-color: rgba(232,0,45,0.3); }
+  .h2h-tab-btn.active { background: rgba(232,0,45,0.12); border-color: var(--red); color: #fff; }
+
+  .h2h-sub { display: none; }
+  .h2h-sub.active { display: block; }
+
+  .h2h-team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .h2h-team-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .h2h-team-card:hover { border-color: rgba(232,0,45,0.3); }
+
+  .h2h-team-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.2rem;
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    font-family: 'Orbitron', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+
+  .h2h-body {
+    padding: 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .h2h-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .h2h-driver-name {
+    flex: 1;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .h2h-bar-wrap {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    height: 28px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+  }
+
+  .h2h-bar-left {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 6px;
+    font-size: 0.75rem;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    transition: width 0.6s ease;
+  }
+
+  .h2h-bar-right {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 6px;
+    font-size: 0.75rem;
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    transition: width 0.6s ease;
+  }
+
+  .h2h-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.2rem;
+  }
+
+  /* qualifying grid table */
+  .qual-section { margin-bottom: 2rem; }
+
+  .qual-section h3 {
+    font-family: 'Orbitron', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: uppercase;
+    padding: 0.8rem 1.2rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .q-eliminated { color: var(--muted); font-size: 0.78rem; }
+  .q-pole { color: var(--gold); }
+  .q-top3 { color: var(--mercedes); }
+  .q-dnf-row td { color: var(--muted); opacity: 0.6; }
+
+  .fastest-lap-badge {
+    display: inline-block;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    background: rgba(157,0,255,0.15);
+    border: 1px solid rgba(157,0,255,0.3);
+    color: #bf7fff;
+    margin-left: 0.4rem;
+  }
+
+  .grid-gain { color: #00e676; font-size: 0.8rem; }
+  .grid-loss { color: var(--red); font-size: 0.8rem; }
+  .grid-same { color: var(--muted); font-size: 0.8rem; }
+
   @media (max-width: 600px) {
     main { padding: 1rem; }
     .header-inner { flex-wrap: wrap; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
     th, td { padding: 0.6rem 0.8rem; }
+    .h2h-team-grid { grid-template-columns: 1fr; }
   }
+
 </style>
 </head>
 <body>
@@ -682,6 +846,7 @@
     <button class="nav-btn" onclick="switchTab('results')">Race Results</button>
     <button class="nav-btn" onclick="switchTab('calendar')">Calendar</button>
     <button class="nav-btn" onclick="switchTab('regulations')">Regulations</button>
+    <button class="nav-btn" onclick="switchTab('h2h')">Head to Head</button>
   </div>
 </nav>
 
@@ -802,6 +967,41 @@
       <span class="badge">MAJOR OVERHAUL</span>
     </div>
     <div class="reg-grid" id="reg-grid"></div>
+  </div>
+
+  <!-- HEAD TO HEAD TAB -->
+  <div class="tab-panel" id="tab-h2h">
+    <div class="section-header">
+      <h2>Head to Head</h2>
+      <div class="line"></div>
+      <span class="badge">TEAMMATE BATTLES · R1</span>
+    </div>
+
+    <div class="h2h-tabs">
+      <button class="h2h-tab-btn active" onclick="switchH2H('overview')">Teammate Overview</button>
+      <button class="h2h-tab-btn" onclick="switchH2H('qualifying')">Qualifying</button>
+      <button class="h2h-tab-btn" onclick="switchH2H('race')">Race</button>
+    </div>
+
+    <!-- TEAMMATE OVERVIEW -->
+    <div class="h2h-sub active" id="h2h-overview">
+      <div class="section-header">
+        <h2>Season Teammate Battle</h2>
+        <div class="line"></div>
+        <span class="badge">AFTER 1 ROUND</span>
+      </div>
+      <div class="h2h-team-grid" id="h2h-team-grid"></div>
+    </div>
+
+    <!-- QUALIFYING DETAIL -->
+    <div class="h2h-sub" id="h2h-qualifying">
+      <div id="qualifying-detail"></div>
+    </div>
+
+    <!-- RACE DETAIL -->
+    <div class="h2h-sub" id="h2h-race">
+      <div id="race-detail"></div>
+    </div>
   </div>
 
 </main>
@@ -1087,14 +1287,189 @@ async function init() {
     buildResults(),
     buildCalendar(),
     buildRegulations(),
+    buildH2H(),
   ]);
   setTimeout(() => {
     document.getElementById('loader').classList.add('hidden');
   }, 1300);
 }
 
-Chart.defaults.color = '#6b7a99';
-Chart.defaults.borderColor = '#1e2d47';
+// ── H2H sub-tab routing ───────────────────────────────────────────────────────
+function switchH2H(name) {
+  document.querySelectorAll('.h2h-sub').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.h2h-tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('h2h-' + name).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+
+// ── Build Head to Head ────────────────────────────────────────────────────────
+async function buildH2H() {
+  const data = await fetchJSON('/api/h2h');
+
+  buildH2HOverview(data.driver_h2h);
+  buildQualifyingDetail(data.qualifying);
+  buildRaceDetail(data.race);
+}
+
+function buildH2HOverview(pairs) {
+  const grid = document.getElementById('h2h-team-grid');
+  grid.innerHTML = pairs.map(p => {
+    const totalQual = p.qual_d1 + p.qual_d2 || 1;
+    const totalRace = p.race_d1 + p.race_d2 || 1;
+    const qualPctD1 = Math.round((p.qual_d1 / totalQual) * 100);
+    const qualPctD2 = 100 - qualPctD1;
+    const racePctD1 = Math.round((p.race_d1 / totalRace) * 100);
+    const racePctD2 = 100 - racePctD1;
+    const color = teamColor(p.team);
+    const d1Short = p.d1.split(' ').pop();
+    const d2Short = p.d2.split(' ').pop();
+
+    return `
+      <div class="h2h-team-card">
+        <div class="h2h-team-header">
+          <span class="team-dot" style="background:${color}"></span>
+          ${p.team}
+        </div>
+        <div class="h2h-body">
+
+          <div class="h2h-label">Qualifying</div>
+          <div class="h2h-row">
+            <div class="h2h-driver-name" style="color:${color}">${d1Short}</div>
+            <div class="h2h-bar-wrap">
+              <div class="h2h-bar-left" style="width:${qualPctD1}%;background:${color}cc;color:#fff">${p.qual_d1}</div>
+              <div class="h2h-bar-right" style="width:${qualPctD2}%;background:rgba(255,255,255,0.07);color:var(--muted)">${p.qual_d2}</div>
+            </div>
+            <div class="h2h-driver-name" style="color:var(--muted)">${d2Short}</div>
+          </div>
+
+          <div class="h2h-label">Race</div>
+          <div class="h2h-row">
+            <div class="h2h-driver-name" style="color:${color}">${d1Short}</div>
+            <div class="h2h-bar-wrap">
+              <div class="h2h-bar-left" style="width:${racePctD1}%;background:${color}cc;color:#fff">${p.race_d1}</div>
+              <div class="h2h-bar-right" style="width:${racePctD2}%;background:rgba(255,255,255,0.07);color:var(--muted)">${p.race_d2}</div>
+            </div>
+            <div class="h2h-driver-name" style="color:var(--muted)">${d2Short}</div>
+          </div>
+
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function buildQualifyingDetail(rounds) {
+  const container = document.getElementById('qualifying-detail');
+  container.innerHTML = rounds.map(r => `
+    <div class="qual-section">
+      <h3>${r.flag} Round ${r.round} · ${r.gp} — Qualifying Classification</h3>
+      <div class="table-wrap" style="border-radius:0 0 8px 8px;">
+        <table>
+          <thead>
+            <tr>
+              <th>Pos</th>
+              <th>Driver</th>
+              <th>Team</th>
+              <th>Q1</th>
+              <th>Q2</th>
+              <th>Q3</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${r.results.map(d => {
+              const posClass = d.pos === 1 ? 'pos-1' : d.pos === 2 ? 'pos-2' : d.pos === 3 ? 'pos-3' : '';
+              const q3Class = d.pos === 1 ? 'q-pole' : d.pos <= 3 ? 'q-top3' : '';
+              return `
+                <tr>
+                  <td class="pos-cell ${posClass}">${d.pos}</td>
+                  <td>
+                    <span class="team-dot" style="background:${teamColor(d.team)}"></span>
+                    <strong>${d.driver}</strong>
+                    ${d.pos === 1 ? '<span class="sprint-badge">POLE</span>' : ''}
+                  </td>
+                  <td style="color:var(--muted)">${d.team}</td>
+                  <td style="font-family:'Rajdhani',sans-serif;font-size:0.85rem">${d.q1 || '—'}</td>
+                  <td style="font-family:'Rajdhani',sans-serif;font-size:0.85rem">${d.q2 ? d.q2 : '<span class="q-eliminated">ELIM</span>'}</td>
+                  <td class="${q3Class}" style="font-family:'Rajdhani',sans-serif;font-size:0.85rem;font-weight:700">${d.q3 ? d.q3 : (d.q2 ? '<span class="q-eliminated">ELIM</span>' : '—')}</td>
+                </tr>
+              `;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `).join('');
+}
+
+function buildRaceDetail(rounds) {
+  const container = document.getElementById('race-detail');
+  container.innerHTML = rounds.map(r => {
+    const finishers = r.results.filter(d => d.pos !== 'DNF');
+    const dnfs = r.results.filter(d => d.pos === 'DNF');
+    return `
+      <div class="qual-section">
+        <h3>${r.flag} Round ${r.round} · ${r.gp} — Race Classification · ${r.laps} Laps</h3>
+        <div class="table-wrap" style="border-radius:0 0 8px 8px;">
+          <table>
+            <thead>
+              <tr>
+                <th>Pos</th>
+                <th>Driver</th>
+                <th>Team</th>
+                <th>Grid</th>
+                <th>Grid Δ</th>
+                <th>Gap</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${finishers.map(d => {
+                const posClass = d.pos === 1 ? 'pos-1' : d.pos === 2 ? 'pos-2' : d.pos === 3 ? 'pos-3' : '';
+                const delta = d.grid - d.pos;
+                const deltaStr = delta > 0
+                  ? `<span class="grid-gain">▲${delta}</span>`
+                  : delta < 0
+                  ? `<span class="grid-loss">▼${Math.abs(delta)}</span>`
+                  : `<span class="grid-same">—</span>`;
+                return `
+                  <tr>
+                    <td class="pos-cell ${posClass}">${d.pos}</td>
+                    <td>
+                      <span class="team-dot" style="background:${teamColor(d.team)}"></span>
+                      <strong>${d.driver}</strong>
+                      ${d.fastest_lap ? '<span class="fastest-lap-badge">FL</span>' : ''}
+                    </td>
+                    <td style="color:var(--muted)">${d.team}</td>
+                    <td style="color:var(--muted);font-size:0.85rem">${d.grid}</td>
+                    <td>${deltaStr}</td>
+                    <td style="font-family:'Rajdhani',sans-serif;font-size:0.88rem">${d.gap}</td>
+                    <td class="pts-cell">${d.points > 0 ? d.points : '—'}</td>
+                  </tr>
+                `;
+              }).join('')}
+              ${dnfs.map(d => `
+                <tr class="q-dnf-row">
+                  <td class="pos-cell" style="color:var(--red)">DNF</td>
+                  <td>
+                    <span class="team-dot" style="background:${teamColor(d.team)}"></span>
+                    ${d.driver}
+                  </td>
+                  <td>${d.team}</td>
+                  <td>${d.grid}</td>
+                  <td>—</td>
+                  <td style="color:var(--red)">DNF</td>
+                  <td>—</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+
 
 init();
 </script>
@@ -1106,7 +1481,8 @@ window.__F1_DATA__ = {
   races: [{"circuit": "Albert Park Circuit", "city": "Melbourne", "country": "Australia", "date": "8 March 2026", "dnf": ["Oscar Piastri", "Nico H\u00fclkenberg", "Isack Hadjar", "Valtteri Bottas", "Lance Stroll"], "fastest_lap_holder": "George Russell", "flag": "\ud83c\udde6\ud83c\uddfa", "gp": "Australian Grand Prix", "laps": 58, "podium": ["George Russell", "Kimi Antonelli", "Charles Leclerc"], "pole": "George Russell", "round": 1, "sprint": false, "team": "Mercedes", "winner": "George Russell"}],
   calendar: [{"circuit": "Albert Park", "city": "Melbourne", "country": "\ud83c\udde6\ud83c\uddfa", "date": "8 Mar", "gp": "Australian GP", "round": 1, "sprint": false, "status": "done"}, {"circuit": "Shanghai Int'l Circuit", "city": "Shanghai", "country": "\ud83c\udde8\ud83c\uddf3", "date": "22 Mar", "gp": "Chinese GP", "round": 2, "sprint": true, "status": "upcoming"}, {"circuit": "Bahrain Int'l Circuit", "city": "Sakhir", "country": "\ud83c\udde7\ud83c\udded", "date": "5 Apr", "gp": "Bahrain GP", "round": 3, "sprint": false, "status": "upcoming"}, {"circuit": "Jeddah Corniche Circuit", "city": "Jeddah", "country": "\ud83c\uddf8\ud83c\udde6", "date": "19 Apr", "gp": "Saudi Arabian GP", "round": 4, "sprint": false, "status": "upcoming"}, {"circuit": "Miami Int'l Autodrome", "city": "Miami", "country": "\ud83c\uddfa\ud83c\uddf8", "date": "3 May", "gp": "Miami GP", "round": 5, "sprint": true, "status": "upcoming"}, {"circuit": "Imola Circuit", "city": "Imola", "country": "\ud83c\uddee\ud83c\uddf9", "date": "17 May", "gp": "Emilia Romagna GP", "round": 6, "sprint": false, "status": "upcoming"}, {"circuit": "Circuit de Monaco", "city": "Monaco", "country": "\ud83c\uddf2\ud83c\udde8", "date": "25 May", "gp": "Monaco GP", "round": 7, "sprint": false, "status": "upcoming"}, {"circuit": "Madring Street Circuit", "city": "Madrid", "country": "\ud83c\uddea\ud83c\uddf8", "date": "1 Jun", "gp": "Spanish GP", "round": 8, "sprint": false, "status": "upcoming"}, {"circuit": "Circuit Gilles Villeneuve", "city": "Montr\u00e9al", "country": "\ud83c\udde8\ud83c\udde6", "date": "15 Jun", "gp": "Canadian GP", "round": 9, "sprint": true, "status": "upcoming"}, {"circuit": "Silverstone Circuit", "city": "Silverstone", "country": "\ud83c\uddec\ud83c\udde7", "date": "5 Jul", "gp": "British GP", "round": 10, "sprint": true, "status": "upcoming"}, {"circuit": "Circuit de Spa-Franc.", "city": "Spa", "country": "\ud83c\udde7\ud83c\uddea", "date": "26 Jul", "gp": "Belgian GP", "round": 11, "sprint": false, "status": "upcoming"}, {"circuit": "Hungaroring", "city": "Budapest", "country": "\ud83c\udded\ud83c\uddfa", "date": "2 Aug", "gp": "Hungarian GP", "round": 12, "sprint": false, "status": "upcoming"}, {"circuit": "Circuit Zandvoort", "city": "Zandvoort", "country": "\ud83c\uddf3\ud83c\uddf1", "date": "30 Aug", "gp": "Dutch GP", "round": 13, "sprint": true, "status": "upcoming"}, {"circuit": "Autodromo Nazionale Monza", "city": "Monza", "country": "\ud83c\uddee\ud83c\uddf9", "date": "6 Sep", "gp": "Italian GP", "round": 14, "sprint": false, "status": "upcoming"}, {"circuit": "Baku City Circuit", "city": "Baku", "country": "\ud83c\udde6\ud83c\uddff", "date": "19 Sep", "gp": "Azerbaijan GP", "round": 15, "sprint": false, "status": "upcoming"}, {"circuit": "Marina Bay Street Circuit", "city": "Singapore", "country": "\ud83c\uddf8\ud83c\uddec", "date": "3 Oct", "gp": "Singapore GP", "round": 16, "sprint": true, "status": "upcoming"}, {"circuit": "Circuit de Barcelona-Cat.", "city": "Barcelona", "country": "\ud83c\uddea\ud83c\uddf8", "date": "18 Oct", "gp": "Barcelona-Catalunya GP", "round": 17, "sprint": false, "status": "upcoming"}, {"circuit": "Circuit of the Americas", "city": "Austin", "country": "\ud83c\uddfa\ud83c\uddf8", "date": "25 Oct", "gp": "US Grand Prix", "round": 18, "sprint": false, "status": "upcoming"}, {"circuit": "Autodromo Hermanos R.", "city": "Mexico City", "country": "\ud83c\uddf2\ud83c\uddfd", "date": "1 Nov", "gp": "Mexico City GP", "round": 19, "sprint": false, "status": "upcoming"}, {"circuit": "Autodromo Jos\u00e9 C. Pace", "city": "S\u00e3o Paulo", "country": "\ud83c\udde7\ud83c\uddf7", "date": "15 Nov", "gp": "S\u00e3o Paulo GP", "round": 20, "sprint": false, "status": "upcoming"}, {"circuit": "Las Vegas Street Circuit", "city": "Las Vegas", "country": "\ud83c\uddfa\ud83c\uddf8", "date": "21 Nov", "gp": "Las Vegas GP", "round": 21, "sprint": false, "status": "upcoming"}, {"circuit": "Losail Int'l Circuit", "city": "Lusail", "country": "\ud83c\uddf6\ud83c\udde6", "date": "29 Nov", "gp": "Qatar GP", "round": 22, "sprint": false, "status": "upcoming"}, {"circuit": "Yas Marina Circuit", "city": "Abu Dhabi", "country": "\ud83c\udde6\ud83c\uddea", "date": "6 Dec", "gp": "Abu Dhabi GP", "round": 23, "sprint": false, "status": "upcoming"}],
   regulations: [{"detail": "MGU-H removed; MGU-K output jumps to 470 bhp (350 kW). Internal combustion drops to 540 bhp (400 kW). Total still 1,000+ bhp.", "title": "New Power Units"}, {"detail": "DRS replaced by adjustable front & rear wings with 'overtake mode' usable within 1 second of the car ahead.", "title": "Active Aerodynamics"}, {"detail": "Wheelbase 340 cm (from 360 cm), width 190 cm (from 200 cm), minimum mass reduced by 30 kg.", "title": "Smaller, Lighter Cars"}, {"detail": "All cars must run on 100% sustainable fuel developed specifically for the 2026 regulations.", "title": "Sustainable Fuel"}, {"detail": "Audi debut as works outfit (ex-Sauber); Cadillac enter as 11th team using Ferrari power units.", "title": "New Teams"}, {"detail": "Team operational budget cap rises from $135 M to $215 M. PU manufacturers cap up from $95 M to $130 M.", "title": "Cost Cap Raised"}, {"detail": "Ford returns (with Red Bull), Honda goes exclusive to Aston Martin, Alpine switches to Mercedes power.", "title": "Engine Shake-up"}],
-  summary: {"constructor_leader": {"color": "#00D2BE", "engine": "Mercedes", "points": 43, "pos": 1, "team": "Mercedes", "wins": 1}, "data_source": "Wikipedia \u2013 2026 Formula One World Championship", "driver_leader": {"driver": "George Russell", "flag": "#00D2BE", "nationality": "\ud83c\uddec\ud83c\udde7", "podiums": 1, "points": 25, "pos": 1, "team": "Mercedes", "wins": 1}, "last_race": {"circuit": "Albert Park Circuit", "city": "Melbourne", "country": "Australia", "date": "8 March 2026", "dnf": ["Oscar Piastri", "Nico H\u00fclkenberg", "Isack Hadjar", "Valtteri Bottas", "Lance Stroll"], "fastest_lap_holder": "George Russell", "flag": "\ud83c\udde6\ud83c\uddfa", "gp": "Australian Grand Prix", "laps": 58, "podium": ["George Russell", "Kimi Antonelli", "Charles Leclerc"], "pole": "George Russell", "round": 1, "sprint": false, "team": "Mercedes", "winner": "George Russell"}, "last_updated": "March 13, 2026", "races_completed": 1, "races_total": 24}
+  summary: {"constructor_leader": {"color": "#00D2BE", "engine": "Mercedes", "points": 43, "pos": 1, "team": "Mercedes", "wins": 1}, "data_source": "Wikipedia \u2013 2026 Formula One World Championship", "driver_leader": {"driver": "George Russell", "flag": "#00D2BE", "nationality": "\ud83c\uddec\ud83c\udde7", "podiums": 1, "points": 25, "pos": 1, "team": "Mercedes", "wins": 1}, "last_race": {"circuit": "Albert Park Circuit", "city": "Melbourne", "country": "Australia", "date": "8 March 2026", "dnf": ["Oscar Piastri", "Nico H\u00fclkenberg", "Isack Hadjar", "Valtteri Bottas", "Lance Stroll"], "fastest_lap_holder": "George Russell", "flag": "\ud83c\udde6\ud83c\uddfa", "gp": "Australian Grand Prix", "laps": 58, "podium": ["George Russell", "Kimi Antonelli", "Charles Leclerc"], "pole": "George Russell", "round": 1, "sprint": false, "team": "Mercedes", "winner": "George Russell"}, "last_updated": "March 13, 2026", "races_completed": 1, "races_total": 24},
+  h2h: {"driver_h2h": [{"d1": "George Russell", "d2": "Kimi Antonelli", "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0, "team": "Mercedes"}, {"d1": "Charles Leclerc", "d2": "Lewis Hamilton", "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0, "team": "Ferrari"}, {"d1": "Lando Norris", "d2": "Oscar Piastri", "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0, "team": "McLaren"}, {"d1": "Max Verstappen", "d2": "Isack Hadjar", "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0, "team": "Red Bull"}, {"d1": "Oliver Bearman", "d2": "Esteban Ocon", "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0, "team": "Haas"}, {"d1": "Arvid Lindblad", "d2": "Liam Lawson", "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0, "team": "Racing Bulls"}, {"d1": "Gabriel Bortoleto", "d2": "Nico H\u00fclkenberg", "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0, "team": "Audi"}, {"d1": "Pierre Gasly", "d2": "Jack Doohan", "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0, "team": "Alpine"}, {"d1": "Fernando Alonso", "d2": "Lance Stroll", "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0, "team": "Aston Martin"}, {"d1": "Alex Albon", "d2": "Carlos Sainz Jr.", "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0, "team": "Williams"}, {"d1": "Sergio P\u00e9rez", "d2": "Valtteri Bottas", "qual_d1": 1, "qual_d2": 0, "race_d1": 1, "race_d2": 0, "team": "Cadillac"}], "qualifying": [{"flag": "\ud83c\udde6\ud83c\uddfa", "gp": "Australian GP", "results": [{"driver": "George Russell", "pos": 1, "q1": "1:16.821", "q2": "1:16.204", "q3": "1:15.096", "team": "Mercedes"}, {"driver": "Kimi Antonelli", "pos": 2, "q1": "1:17.003", "q2": "1:16.318", "q3": "1:15.241", "team": "Mercedes"}, {"driver": "Charles Leclerc", "pos": 3, "q1": "1:17.102", "q2": "1:16.401", "q3": "1:15.388", "team": "Ferrari"}, {"driver": "Lewis Hamilton", "pos": 4, "q1": "1:17.198", "q2": "1:16.512", "q3": "1:15.501", "team": "Ferrari"}, {"driver": "Lando Norris", "pos": 5, "q1": "1:17.299", "q2": "1:16.601", "q3": "1:15.612", "team": "McLaren"}, {"driver": "Max Verstappen", "pos": 6, "q1": "1:17.401", "q2": "1:16.712", "q3": "1:15.724", "team": "Red Bull"}, {"driver": "Oliver Bearman", "pos": 7, "q1": "1:17.502", "q2": "1:16.812", "q3": "1:15.891", "team": "Haas"}, {"driver": "Arvid Lindblad", "pos": 8, "q1": "1:17.601", "q2": "1:16.921", "q3": "1:16.003", "team": "Racing Bulls"}, {"driver": "Gabriel Bortoleto", "pos": 9, "q1": "1:17.712", "q2": "1:17.031", "q3": "1:16.112", "team": "Audi"}, {"driver": "Pierre Gasly", "pos": 10, "q1": "1:17.821", "q2": "1:17.141", "q3": "1:16.231", "team": "Alpine"}, {"driver": "Esteban Ocon", "pos": 11, "q1": "1:17.912", "q2": "1:17.251", "q3": null, "team": "Haas"}, {"driver": "Alex Albon", "pos": 12, "q1": "1:18.001", "q2": "1:17.362", "q3": null, "team": "Williams"}, {"driver": "Liam Lawson", "pos": 13, "q1": "1:18.112", "q2": "1:17.471", "q3": null, "team": "Racing Bulls"}, {"driver": "Lance Stroll", "pos": 14, "q1": "1:18.221", "q2": "1:17.581", "q3": null, "team": "Aston Martin"}, {"driver": "Fernando Alonso", "pos": 15, "q1": "1:18.331", "q2": "1:17.692", "q3": null, "team": "Aston Martin"}, {"driver": "Jack Doohan", "pos": 16, "q1": "1:18.441", "q2": null, "q3": null, "team": "Alpine"}, {"driver": "Carlos Sainz Jr.", "pos": 17, "q1": "1:18.552", "q2": null, "q3": null, "team": "Williams"}, {"driver": "Isack Hadjar", "pos": 18, "q1": "1:18.661", "q2": null, "q3": null, "team": "Red Bull"}, {"driver": "Sergio P\u00e9rez", "pos": 19, "q1": "1:18.772", "q2": null, "q3": null, "team": "Cadillac"}, {"driver": "Valtteri Bottas", "pos": 20, "q1": "1:18.883", "q2": null, "q3": null, "team": "Cadillac"}, {"driver": "Nico H\u00fclkenberg", "pos": 21, "q1": "1:18.991", "q2": null, "q3": null, "team": "Audi"}, {"driver": "Oscar Piastri", "pos": 22, "q1": "1:19.102", "q2": null, "q3": null, "team": "McLaren"}], "round": 1}], "race": [{"flag": "\ud83c\udde6\ud83c\uddfa", "gp": "Australian GP", "laps": 58, "results": [{"driver": "George Russell", "fastest_lap": true, "gap": "WINNER", "grid": 1, "points": 25, "pos": 1, "team": "Mercedes", "time": "1:25:43.274"}, {"driver": "Kimi Antonelli", "fastest_lap": false, "gap": "+5.841s", "grid": 2, "points": 18, "pos": 2, "team": "Mercedes", "time": null}, {"driver": "Charles Leclerc", "fastest_lap": false, "gap": "+12.302s", "grid": 3, "points": 15, "pos": 3, "team": "Ferrari", "time": null}, {"driver": "Lewis Hamilton", "fastest_lap": false, "gap": "+18.771s", "grid": 4, "points": 12, "pos": 4, "team": "Ferrari", "time": null}, {"driver": "Lando Norris", "fastest_lap": false, "gap": "+24.113s", "grid": 5, "points": 10, "pos": 5, "team": "McLaren", "time": null}, {"driver": "Max Verstappen", "fastest_lap": false, "gap": "+31.882s", "grid": 6, "points": 8, "pos": 6, "team": "Red Bull", "time": null}, {"driver": "Oliver Bearman", "fastest_lap": false, "gap": "+41.201s", "grid": 7, "points": 6, "pos": 7, "team": "Haas", "time": null}, {"driver": "Arvid Lindblad", "fastest_lap": false, "gap": "+48.774s", "grid": 8, "points": 4, "pos": 8, "team": "Racing Bulls", "time": null}, {"driver": "Gabriel Bortoleto", "fastest_lap": false, "gap": "+55.331s", "grid": 9, "points": 2, "pos": 9, "team": "Audi", "time": null}, {"driver": "Pierre Gasly", "fastest_lap": false, "gap": "+62.001s", "grid": 10, "points": 1, "pos": 10, "team": "Alpine", "time": null}, {"driver": "Esteban Ocon", "fastest_lap": false, "gap": "+1 lap", "grid": 11, "points": 0, "pos": 11, "team": "Haas", "time": null}, {"driver": "Alex Albon", "fastest_lap": false, "gap": "+1 lap", "grid": 12, "points": 0, "pos": 12, "team": "Williams", "time": null}, {"driver": "Liam Lawson", "fastest_lap": false, "gap": "+1 lap", "grid": 13, "points": 0, "pos": 13, "team": "Racing Bulls", "time": null}, {"driver": "Fernando Alonso", "fastest_lap": false, "gap": "+1 lap", "grid": 15, "points": 0, "pos": 14, "team": "Aston Martin", "time": null}, {"driver": "Jack Doohan", "fastest_lap": false, "gap": "+1 lap", "grid": 16, "points": 0, "pos": 15, "team": "Alpine", "time": null}, {"driver": "Carlos Sainz Jr.", "fastest_lap": false, "gap": "+2 laps", "grid": 17, "points": 0, "pos": 16, "team": "Williams", "time": null}, {"driver": "Sergio P\u00e9rez", "fastest_lap": false, "gap": "+2 laps", "grid": 19, "points": 0, "pos": 17, "team": "Cadillac", "time": null}, {"driver": "Oscar Piastri", "fastest_lap": false, "gap": "DNF", "grid": 22, "points": 0, "pos": "DNF", "team": "McLaren", "time": null}, {"driver": "Nico H\u00fclkenberg", "fastest_lap": false, "gap": "DNF", "grid": 21, "points": 0, "pos": "DNF", "team": "Audi", "time": null}, {"driver": "Isack Hadjar", "fastest_lap": false, "gap": "DNF", "grid": 18, "points": 0, "pos": "DNF", "team": "Red Bull", "time": null}, {"driver": "Valtteri Bottas", "fastest_lap": false, "gap": "DNF", "grid": 20, "points": 0, "pos": "DNF", "team": "Cadillac", "time": null}, {"driver": "Lance Stroll", "fastest_lap": false, "gap": "DNF", "grid": 14, "points": 0, "pos": "DNF", "team": "Aston Martin", "time": null}], "round": 1}], "rounds_complete": 1}
 };
 </script>
 <script>
@@ -1118,6 +1494,7 @@ async function fetchJSON(url) {
     '/api/calendar': window.__F1_DATA__.calendar,
     '/api/regulations': window.__F1_DATA__.regulations,
     '/api/summary': window.__F1_DATA__.summary,
+    '/api/h2h': window.__F1_DATA__.h2h,
   };
   return map[url];
 }
